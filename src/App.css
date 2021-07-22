@@ -285,9 +285,9 @@ font-size: 4vh;
 .modal-btn {
   display: block;
   margin: 0 auto;
-  width: 40%;
-  margin-left: 30%;
-  margin-right: 30%
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%
 }
 
 .modal-close-button {
