@@ -33,9 +33,9 @@ body {
     height: 70px;
 }
 
-.bg-dark {
+.bg-gray {
     z-index: 1000;
-    background-color: #F3F3F3;
+    background-color: grey!important;
     position: fixed;
     top: 0;
     width: 100%;
@@ -107,6 +107,6 @@ body {
 }
 @media screen and (max-width: 992px) {
     .bg-clear {
-        background-color: #212529!important;
+        background-color: gray!important;
     }
 }

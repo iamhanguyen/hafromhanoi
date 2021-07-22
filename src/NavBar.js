@@ -13,7 +13,7 @@ export const NavBar = () => {
 
     return (
         <div>
-<Navbar collapseOnSelect className={scroll ? "bg-dark" : "bg-clear"} expand="lg" id="custom-nav">
+<Navbar collapseOnSelect className={scroll ? "bg-gray" : "bg-clear"} expand="lg" id="custom-nav">
   <Container>
   <Navbar.Brand href="#home">I AM HÀ</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav"><FaBars className="ham"/></Navbar.Toggle>
