@@ -65,16 +65,16 @@ const PortfolioItems = ({project}) => {
                 
                 <br/>
                 <Row>
-                    <Col xs={5}>
+                    <Col lg={4} md={4} sm={4} xs={4}>
                     </Col>
-                    <Col xs={2}>
+                    <Col lg={4} md={4} sm={4} xs={4}>
                     <Button variant="primary" onClick={handleClose} className="modal-btn">
                         <span className="modal-close-button">
                         <ImCross className="mb-1 me-2"/> Close
                         </span>
                     </Button>
                     </Col>
-                    <Col xs={5}>
+                    <Col lg={4} md={4} sm={4} xs={4}>
                     </Col>
                 </Row>
             </Container>
