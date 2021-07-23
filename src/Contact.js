@@ -1,73 +1,110 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { EasybaseProvider, useEasybase } from 'easybase-react';
+import ebconfig from "./ebconfig";
 
-const Contact = () => {
+export default function Contact() {
     return (
-        <div>
-            <section className="page-section" id="contact">
-            <div className="container">
-                <div className="text-center">
-                    <h2 className="section-heading text-uppercase">Get in touch</h2>
-                    {/* <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> */}
-                </div>
-                {/* <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!--> */}
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                    <div className="row align-items-stretch mb-5">
-                        <div className="col-md-6">
-                            <div className="form-group">
-                               {/*  <!-- Name input--> */}
-                                <input className="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                                <div className="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                            </div>
-                            <div className="form-group">
-                                {/* <!-- Email address input--> */}
-                                <input className="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                                <div className="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div className="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                            </div>
-                            <div className="form-group mb-md-0">
-                               {/*  <!-- Phone number input--> */}
-                                <input className="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                                <div className="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="form-group form-group-textarea mb-md-0">
-                                {/* <!-- Message input--> */}
-                                <textarea className="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                                <div className="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted--> */}
-                    <div className="d-none" id="submitSuccessMessage">
-                        <div className="text-center text-white mb-3">
-                            <div className="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                   {/*  <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form--> */}
-                    <div className="d-none" id="submitErrorMessage"><div className="text-center text-danger mb-3">Error sending message!</div></div>
-                    {/* <!-- Submit Button--> */}
-                    <div className="text-center"><button className="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
-                </form>
-            </div>
-        </section>
-        </div>
-    )
+        <EasybaseProvider ebconfig={ebconfig}>
+            <ContactArea />
+        </EasybaseProvider>
+    );
 }
 
-export default Contact
+function ContactArea() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [message, setMessage] = useState('');
+    const [alert, setAlert] = useState({show:false, msg:'',type:''});
+        
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!name || !email || !phone || !message) {
+        // display alert
+        showAlert(true, 'danger', 'Please enter the values')
+        } else {
+        // show alert
+        // add item to list
+        showAlert(true, 'success', 'Form submission successful!')
+        setName('');
+        }
+    }
+
+    const showAlert = (show=false, type="", msg="") => {
+        setAlert({show, type, msg})
+    }
+
+    return (
+        <>
+            <div>
+            <section className="page-section" id="contact">
+                <div className="container">
+                    <div className="text-center">
+                        <h2 className="section-heading text-uppercase">Contact Me</h2>
+                        <h3 className="section-subheading text-muted">Enter your details below!</h3>
+                    </div>
+                    <form id="contactForm" onSubmit={handleSubmit}>
+                    {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
+                        <div className="row align-items-stretch mb-5">
+                            <div className="col-md-6">
+                                <div className="form-group">
+                                {/*  <!-- Name input--> */}
+                                    <input className="form-control" id="name" type="text" placeholder="Your Name *" required value={name} onChange={(e) => setName(e.target.value)}/>
+                                    <div className="invalid-feedback">A name is required.</div>
+                                </div>
+                                <div className="form-group">
+                                    {/* <!-- Email address input--> */}
+                                    <input className="form-control" id="email" type="email" placeholder="Your Email *" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    <div className="invalid-feedback">An email is required.</div>
+                                    <div className="invalid-feedback">Email is not valid.</div>
+                                </div>
+                                <div className="form-group mb-md-0">
+                                {/*  <!-- Phone number input--> */}
+                                    <input className="form-control" id="phone" type="tel" placeholder="Your Phone *" required value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                    <div className="invalid-feedback">A phone number is required.</div>
+                                </div>
+                            </div>
+                            <div className="col-md-6">
+                                <div className="form-group form-group-textarea mb-md-0">
+                                    {/* <!-- Message input--> */}
+                                    <textarea className="form-control" id="message" placeholder="Your Message *" required value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
+                                    <div className="invalid-feedback">A message is required.</div>
+                                </div>
+                            </div>
+                        </div>
+                        {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
+                        <div className="text-center"><SubmitButton name={name} email={email} phone={phone} message={message}/></div>
+                    </form>
+                </div>
+            </section>
+            </div>
+        </>
+    )
+    }
+
+function SubmitButton({name, email, phone, message}) {
+    const { db } = useEasybase();
+
+    const handleAdd = async () => {
+      if (!name || !email || !phone || !message) {
+  
+      } else {
+        await db('CONTACTFORM').insert({ title: name, email: email, phone: phone, message: message  }).one()
+      }
+    }
+   return <button className="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit" onClick={handleAdd}>Send Message</button>
+}
+
+const Alert = ({type, msg, removeAlert, list}) => {
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            removeAlert();
+        }, 3000)
+        return () => clearTimeout(timeout)
+    }, [list, removeAlert])
+  return (
+      <>
+        <p className={`alert alert-${type}`}>{msg}</p>
+      </>
+  )
+  }
