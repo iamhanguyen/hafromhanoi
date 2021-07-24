@@ -4,9 +4,7 @@ import ebconfig from "./ebconfig";
 
 export default function Contact() {
     return (
-        <EasybaseProvider ebconfig={ebconfig}>
-            <ContactArea />
-        </EasybaseProvider>
+            <ContactArea />       
     );
 }
 
