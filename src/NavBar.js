@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { links, social } from './dataNav';
-import './NewNav.css'
+import './NavBar.css'
 
-const Navbar = () => {
+const NavBar = () => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
@@ -20,7 +20,7 @@ const Navbar = () => {
   useEffect(() => {
     const linksHeight = linksRef.current.getBoundingClientRect().height;
     if (showLinks) {
-      linksContainerRef.current.style.height = ${linksHeight}px;
+      linksContainerRef.current.style.height = `${linksHeight}px`;
     } else {
       linksContainerRef.current.style.height = '0px';
     }
@@ -63,7 +63,9 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;
+
+
       //     <Nav.Link className="social-links" href="https://github.com/iamha1" target="_blank" title="GitHub Profile" rel="noreferrer">
       //    <div className="social-circles">
       //     <i className="fab fa-github"></i>
