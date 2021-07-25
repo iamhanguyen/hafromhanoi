@@ -73,25 +73,20 @@ function Example() {
                                     <div className="form-group">
                                     {/*  <!-- Name input--> */}
                                         <input className="form-control" id="name" type="text" placeholder="Your Name *" required value={name} onChange={(e) => setName(e.target.value)}/>
-                                        <div className="invalid-feedback">A name is required.</div>
                                     </div>
                                     <div className="form-group">
                                         {/* <!-- Email address input--> */}
                                         <input className="form-control" id="email" type="email" placeholder="Your Email *" required value={email} onChange={(e) => setEmail(e.target.value)} />
-                                        <div className="invalid-feedback">An email is required.</div>
-                                        <div className="invalid-feedback">Email is not valid.</div>
                                     </div>
                                     <div className="form-group mb-md-0">
                                     {/*  <!-- Phone number input--> */}
                                         <input className="form-control" id="phone" type="tel" placeholder="Your Phone *" required value={phone} onChange={(e) => setPhone(e.target.value)} />
-                                        <div className="invalid-feedback">A phone number is required.</div>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="form-group form-group-textarea mb-md-0">
                                         {/* <!-- Message input--> */}
                                         <textarea className="form-control" id="message" placeholder="Your Message *" required value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
-                                        <div className="invalid-feedback">A message is required.</div>
                                     </div>
                                 </div>
                             </div>
@@ -111,10 +106,10 @@ function SubmitButton({name, email, phone, message}) {
     if (!name || !email || !phone || !message) {
 
     } else {
-      await db('CONTACTFORM').insert({ title: name, email: email, phone: phone, message: message  }).one()
+      await db('CONTACTFORM').insert({ name: name, email: email, phone: phone, message: message  }).one()
     }
   }
- return <button className="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit" onClick={handleAdd}>Send Message</button>
+ return <button className="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit" onClick={handleAdd}>Send Message</button>
 }
 
 const Alert = ({type, msg, removeAlert }) => {
