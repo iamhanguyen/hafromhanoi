@@ -5,7 +5,6 @@ import './style.css'
 import './NavBar.css'
 import { EasybaseProvider, useEasybase } from 'easybase-react';
 import ebconfig from "./ebconfig";
-import {ImSpinner} from 'react-icons/im'
 import NavBar from './NavBar';
 import Header from './Header'
 import About from './About'
@@ -25,7 +24,6 @@ function App() {
 export default App;
 
 function Example() {
-  const { db, useReturn } = useEasybase();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -48,12 +46,6 @@ function Example() {
   const showAlert = (show=false, type="", msg="") => {
     setAlert({show, type, msg})
   }
-
-  const { frame, loading } = useReturn(() => db('CONTACTFORM')
-    .return()                           // Select query
-    .limit(50));                         // Limit how many items are shown
-
-  if (loading) return <ImSpinner />
   return (
     <>
       <NavBar/>
