@@ -40,6 +40,9 @@ function Example() {
             // add item to list
             showAlert(true, 'success', 'Form submission successful!')
             setName('');
+            setEmail('');
+            setPhone('');
+            setMessage('');
             }
   }
 
@@ -82,7 +85,6 @@ function Example() {
                                     </div>
                                 </div>
                             </div>
-                            {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
                             <div className="text-center"><SubmitButton name={name} email={email} phone={phone} message={message}/></div>
                         </form>
                     </div>
