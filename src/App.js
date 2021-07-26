@@ -59,7 +59,11 @@ function Example() {
                     <div className="container">
                         <div className="text-center">
                             <h2 className="section-heading text-uppercase">Contact Me</h2>
-                            <h3 className="section-subheading text-muted">Enter your details below!</h3>
+                            <div className="text-center mb-3">
+                            <a href="mailto:hafromhanoi@gmail.com" title="Email Hà">hafromhanoi@gmail.com</a>
+                            </div>
+                            <h3 className="section-subheading text-muted mb-3">Or enter your details below!</h3>
+                            
                         </div>
                         <form id="contactForm" onSubmit={handleSubmit}>
                         {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
