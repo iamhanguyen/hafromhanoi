@@ -48,11 +48,11 @@ const NavBar = () => {
         </div>
         <ul className='social-icons'>
           {social.map((socialIcon) => {
-            const { id, url, icon } = socialIcon;
+            const { id, url, icon, title} = socialIcon;
             return (
               <li key={id}>
-                <div className="circles-social">
-                    <a href={url}>{icon}</a>
+                <div className="circles-social ">
+                <a href={url} target="_blank" rel="noreferrer" title={title}>{icon}</a>
                 </div>
               </li>
             );
