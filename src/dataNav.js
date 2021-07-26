@@ -21,17 +21,17 @@ export const links = [
 export const social = [
   {
     id: 1,
-    url: 'https://www.facebook.com/',
+    url: 'https://github.com/iamha1',
     icon: <FaGithub />,
   },
   {
     id: 2,
-    url: 'https://www.twitter.com/',
+    url: 'https://www.linkedin.com/in/iamha/',
     icon: <FaLinkedinIn />,
   },
   {
     id: 3,
-    url: 'https://www.linkedin.com/',
+    url: 'https://drive.google.com/file/d/1svKy1VrDPFOp0hJMeY7zbv8zulGc6GWX/view?usp=sharing" target="_blank" title="Resume" rel="noreferrer',
     icon: <FaIdBadge />,
   },
 ]
