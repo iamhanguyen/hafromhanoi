@@ -30,6 +30,9 @@ function ContactArea() {
             Phone: ${phone}
             Message: ${message}
             `
+
+            //Changed DB to emailJS
+            //Updated serviceID and key
             emailjs
                 .sendForm('service_ts05ew6', 'template_o789mcq', {
                     emailMessage
