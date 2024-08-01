@@ -24,12 +24,12 @@ const data = [
         title: 'Meteo',
         image: './portfolioImages/meteo.jpg',
         description:
-            'An application that tracks and forecasts weather. This app was deployed on Netlify. | Technologies used: JavaScript, API, HTML, CSS, Bootstrap.',
-        demo: "https://github.com/iamha1/hafromhanoi/",
-        github: "https://github.com/iamha1/password-generator", 
-        link: '#portfolioModal1',
+            'An application that tracks and forecasts weather. This app was deployed on Netlify. | Technologies used: JavaScript, API, HTML, CSS.',
+        demo: "https://meteoapp2024.netlify.app/", 
+        github: "https://github.com/iamha1/meteo/",
+        link: '#portfolioModal0',
     },
-    
+
     {
         id: 1,
         title: 'Password Generator',
@@ -37,8 +37,8 @@ const data = [
         description:
             'An application that generates a random password based on user-selected criteria. This app will run in the browser and feature dynamically updated HTML and CSS powered by JavaScript code. | Technologies used: JavaScript, Moment.js, HTML, CSS, Bootstrap.',
         demo: "https://iamha1.github.io/password-generator/",
-        github: "https://github.com/iamha1/meteo", 
-        link: '#portfolioModal0',
+        github: "https://github.com/iamha1/password-generator", 
+        link: '#portfolioModal1',
     },
     {
         id: 2,
