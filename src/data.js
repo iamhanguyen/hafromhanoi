@@ -9,6 +9,16 @@
 // import fullbelly from './hafromhanoi/portfolioImages/fullbelly.jpg'
 
 const data = [
+     {
+        id: 0,
+        title: 'Meteo',
+        image: './portfolioImages/meteo.jpg',
+        description:
+            'An application that tracks and forecasts weather. This app was deployed on Netlify. | Technologies used: JavaScript, API, HTML, CSS.',
+        demo: "https://meteoapp2024.netlify.app/", 
+        github: "https://github.com/iamha1/meteo/",
+        link: '#portfolioModal0',
+    },
     {
         id: 1,
         title: 'Password Generator',
